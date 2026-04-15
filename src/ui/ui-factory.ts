@@ -10,6 +10,7 @@ import {routes} from "../data/routes";
 import {config} from "../../config/env";
 import {PortfolioPage} from "../pages/PortfolioPage";
 import {AccountPage} from "../pages/AccountPage";
+import {SelectChainModal} from "../components/SelectChainModal";
 
 export class UIFactory {
     constructor(private readonly page: Page) {}
@@ -28,6 +29,10 @@ export class UIFactory {
 
     usernameModal() {
         return new UsernameModal(this.page);
+    }
+
+    selectChainModal() {
+        return new SelectChainModal(this.page);
     }
 
     twoFactorModal() {
