@@ -17,6 +17,7 @@ export const TEST_WALLETS = {
         password: "KZVo3*cV!q*sq7DHFRWv",
         walletName: "testuser_main_sol",
         nativeBalance: "0.01001",
+        walletAddress: "47ZwfJ5ui8DLwvURANbioRM6GEQiZtVNv5NvuJDG57WY",
     },
 
     secondary: {

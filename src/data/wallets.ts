@@ -4,6 +4,7 @@ export interface WalletCredentials {
   seed: string;
   password: string;
   walletName: string;
+  walletAddress?: string;
   nativeBalance?: string;
 }
 
