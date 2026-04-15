@@ -4,11 +4,13 @@ import { BrowserManager } from "../core/BrowserManager";
 import { WalletExtensionPage } from "../pages/WalletExtensionPage";
 import {getWallet, WalletCredentials} from "../data/wallets";
 import {UIFactory} from "../ui/ui-factory";
+import {IndexerApi} from "../../api/indexer.api";
 
 export class TestWorld extends World {
   browser = new BrowserManager();
   page!: Page;
   ui!: UIFactory;
+  api!: IndexerApi;
 
   walletCredentials: WalletCredentials | null = null;
 
@@ -24,6 +26,17 @@ export class TestWorld extends World {
     this.page = await this.browser.launch(extensionName, walletName);
 
     this.ui = new UIFactory(this.page);
+
+    this.api = new IndexerApi(async () => {
+      const cookies = await this.page.context().cookies();
+      const auth = cookies.find(c => c.name === "auth_token");
+
+      if (!auth) {
+        throw new Error("auth_token cookie not found");
+      }
+
+      return auth.value;
+    });
   }
 
   async waitForWalletPopup(): Promise<WalletExtensionPage> {

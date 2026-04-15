@@ -10,6 +10,10 @@ Then("I should see correct wallet balance", async function () {
   const expectedBalance = Number(this.walletCredentials!.nativeBalance);
 
   expect(actualBalance).toBe(expectedBalance);
+
+  const apiBalance = await this.api.getFormattedBalance(this.walletCredentials!.walletAddress!);
+
+  expect(actualBalance).toBeCloseTo(apiBalance, 5)
 });
 
 Then("I should see correct wallet username", async function () {
