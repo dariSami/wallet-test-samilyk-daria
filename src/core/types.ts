@@ -2,6 +2,8 @@ import { Page } from "@playwright/test";
 
 export type WalletProvider = "Phantom" | "Metamask";
 
+export type Chain = "Solana" | "EVM Network";
+
 export interface IPage {
   readonly page: Page;
 }

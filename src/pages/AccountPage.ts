@@ -4,6 +4,7 @@ import {BasePage} from "../core/BasePage";
 export class AccountPage extends BasePage {
     private static readonly S = {
         username: 'div:text-matches("^@")',
+        logOutButton: 'button:has-text("Log Out")',
     };
 
     constructor(page: Page, private readonly url: string) {
@@ -24,5 +25,9 @@ export class AccountPage extends BasePage {
         }
 
         return text.replace("@", "").trim();
+    }
+
+    async logout() {
+        await this.page.locator(AccountPage.S.logOutButton).first().click();
     }
 }

@@ -26,3 +26,7 @@ Then("I should see correct wallet username", async function () {
 
   expect(actualUsername).toBe(expectedUsername);
 });
+
+Then("I should see sign in button after log out", async function () {
+  expect(this.ui.header().isSignInButtonDisplayed()).toBeTruthy();
+});

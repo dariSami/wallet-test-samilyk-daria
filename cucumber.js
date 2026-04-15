@@ -9,7 +9,6 @@ module.exports = {
       "json:reports/cucumber-report.json",
     ],
     formatOptions: { snippetInterface: "async-await" },
-    timeout: 30_000,
-    publishQuiet: true,
+    timeout: 30_000
   },
 };

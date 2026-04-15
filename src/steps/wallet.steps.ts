@@ -1,5 +1,5 @@
 import { When } from "../support/steps";
-import {WalletProvider} from "../core/types";
+import {Chain, WalletProvider} from "../core/types";
 
 When("I click Connect with Wallet", async function () {
   await this.ui.signInModal().clickConnectWithWallet();
@@ -7,6 +7,11 @@ When("I click Connect with Wallet", async function () {
 
 When("I select {string} from the wallet provider modal", async function (wallet: WalletProvider) {
       await this.ui.walletProviderModal().selectWallet(wallet);
+    },
+);
+
+When("I select chain {string} from the chain modal", async function (chain: Chain) {
+        await this.ui.selectChainModal().selectChain(chain);
     },
 );
 
