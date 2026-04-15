@@ -1,0 +1,27 @@
+{
+  "name": "tradegenius-wallet-tests",
+  "version": "1.0.0",
+  "description": "E2E tests for TradeGenius wallet auth (Phantom)",
+  "scripts": {
+    "setup:wallet:phantom:main": "ts-node scripts/setup-wallet.ts main phantom",
+    "test": "cucumber-js",
+    "test:dev": "TEST_ENV=dev cucumber-js",
+    "test:prod": "TEST_ENV=prod cucumber-js",
+    "test:smoke": "cucumber-js --tags @smoke",
+    "lint": "eslint src/ config/",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^10.9.0",
+    "@playwright/test": "^1.48.0",
+    "dotenv": "^16.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "typescript-eslint": "^8.0.0"
+  }
+}
